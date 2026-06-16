@@ -1,0 +1,107 @@
+{
+ "keyword": "iziswap",
+ "h1": "iZiSwap",
+ "brand": "iZiSwap",
+ "niche": "swap",
+ "verb": "Swap",
+ "title": "iZiSwap - Open App",
+ "meta_description": "iziswap opens the official iZUMi swap app for non-custodial token swaps, DL-AMM liquidity, and limit-order style trades.",
+ "palette": {
+  "mode": "light",
+  "bg": "#FFFFFF",
+  "accent": "#7C4DFF",
+  "ink": "#14051F"
+ },
+ "hero_h2": "Swap tokens with discrete liquidity and limit-order control",
+ "hero_lead": "iZiSwap is the iZUMi Finance swap destination for non-custodial token trading, DL-AMM liquidity, and limit-order style execution across supported networks.",
+ "badge": "DEX Swap",
+ "widget": {
+  "from": "BNB",
+  "from_net": "BNB Chain",
+  "to": "USDT",
+  "to_net": "BNB Chain",
+  "action": "Open iZiSwap App"
+ },
+ "trust": [
+  "Non-custodial DEX",
+  "DL-AMM model",
+  "Multi-chain deployments"
+ ],
+ "what_is": "iZiSwap is iZUMi Finance's exchange product: a discretized-liquidity AMM for token swaps, liquidity positions, and limit-order style trading. The <a href='https://docs.izumi.finance/product/iziswap'>official product docs</a> describe the DL-AMM model and app route.",
+ "how": [
+  {
+   "t": "Open the app",
+   "d": "Go to the official swap route and connect a wallet on a supported network."
+  },
+  {
+   "t": "Choose tokens",
+   "d": "Select the token you want to swap from and the token you want to receive."
+  },
+  {
+   "t": "Review the quote",
+   "d": "Check the network, token addresses, estimated output, price impact, and approval request."
+  },
+  {
+   "t": "Confirm in wallet",
+   "d": "Sign only on the verified domain and wait for the transaction to settle on-chain."
+  }
+ ],
+ "points": [
+  {
+   "h": "Built around DL-AMM",
+   "p": "The design uses discrete price points for concentrated liquidity and supports limit-order style methods described in the <a href='https://developer.izumi.finance/iZiSwap/concepts/swap'>developer docs</a>."
+  },
+  {
+   "h": "Supported across networks",
+   "p": "iZiSwap contracts are documented across BNB Chain and multiple EVM networks; switch only to networks shown in the live app."
+  },
+  {
+   "h": "Official-domain routing",
+   "p": "This page routes visitors to the izumi.finance swap path so wallet actions happen on the project domain, not on a copycat site."
+  }
+ ],
+ "eeat": [
+  {
+   "text": "iZUMi product docs",
+   "url": "https://docs.izumi.finance/product/iziswap"
+  },
+  {
+   "text": "iZiSwap developer docs",
+   "url": "https://developer.izumi.finance/iZiSwap/concepts/swap"
+  },
+  {
+   "text": "BNB Chain",
+   "url": "https://www.bnbchain.org/en"
+  }
+ ],
+ "faq": [
+  {
+   "q": "What is iziswap?",
+   "a": "iziswap is iZUMi Finance's non-custodial DEX product for swapping tokens through a discretized-liquidity AMM model.",
+   "open": true
+  },
+  {
+   "q": "Is this iziswap page the official app?",
+   "a": "No. This is a routing page; the official app is <a href='https://izumi.finance/trade/swap'>izumi.finance/trade/swap</a>. Always verify the domain before connecting a wallet.",
+   "open": false
+  },
+  {
+   "q": "Which networks does iziswap support?",
+   "a": "The <a href='https://developer.izumi.finance/iZiSwap/deployed_contracts/'>deployed contracts</a> docs list BNB Chain, zkSync Era, Base, Arbitrum, Polygon, and other networks; live availability depends on the app route and token.",
+   "open": false
+  },
+  {
+   "q": "Can I place limit orders on iziswap?",
+   "a": "The product docs describe limit-order style trading supported by the DL-AMM design; review live market conditions in the app before signing.",
+   "open": false
+  },
+  {
+   "q": "Do I need to trust this iziswap landing page?",
+   "a": "Use it as a shortcut only; wallet connection, approvals, and swaps should happen on izumi.finance after you verify the URL.",
+   "open": false
+  }
+ ],
+ "official_url": "https://izumi.finance/trade/swap",
+ "official_domain": "izumi.finance",
+ "footer_note": "This page is not the official app; verify izumi.finance before connecting a wallet; educational information only, not financial advice."
+}
