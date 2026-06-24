@@ -651,3 +651,13 @@ a.trust-chip:hover { border-color: var(--accent-deep); color: var(--accent-deep)
 .intent-a li{position:relative}
 
 :root{--accent:#7C4DFF;--accent-2:#6841D6;--accent-deep:#7C4DFF;--accent-ink:#FFFFFF;--accent-soft:rgba(124,77,255,0.13);--accent-line:rgba(104,65,214,0.32);--accent-glow:rgba(124,77,255,0.45);--hero-glow:rgba(124,77,255,0.10);--hero-glow-2:rgba(124,77,255,0.06);}
+
+/* === SEOGEO-TEXTURE BEGIN === */
+/* treatment T2 */
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background-image:
+    repeating-linear-gradient(45deg,color-mix(in srgb,var(--ink) 5%,transparent) 0 1px,transparent 1px 23px),
+    repeating-linear-gradient(-45deg,color-mix(in srgb,var(--ink) 5%,transparent) 0 1px,transparent 1px 23px);
+  -webkit-mask:radial-gradient(130% 88% at 50% 0%,#000 0%,transparent 78%);
+          mask:radial-gradient(130% 88% at 50% 0%,#000 0%,transparent 78%);}
+/* === SEOGEO-TEXTURE END === */
