@@ -1,0 +1,59 @@
+# iziSwap
+> iziSwap is iZUMi Finance’s multichain, non-custodial decentralized exchange protocol built around a Discretized-Liquidity AMM and on-chain limit orders.
+
+## What is iziSwap
+iziSwap lets users swap tokens, provide concentrated liquidity, and place limit orders through smart contracts instead of a custodial exchange. Its Discretized-Liquidity AMM allocates liquidity at discrete price ticks, improving capital efficiency and reducing slippage where liquidity is concentrated. Unlike constant-product AMMs, liquidity need not cover the entire price curve. Unlike conventional order books, iziSwap’s limit orders execute against on-chain liquidity without an exchange holding user accounts or private keys.
+
+## How it works
+1. A user connects a self-custody EVM wallet, selects a supported network and token pair, and enters a trade.
+2. A quoter simulates available routes through iziSwap pools and displays expected output, pool fee, price impact, and minimum received.
+3. After any required ERC-20 approval, the user signs a swap; periphery contracts call the core pools, consume liquidity across price ticks, and settle both token transfers atomically.
+4. Liquidity providers choose a price range and fee tier; their position is represented by an ERC-721 NFT and earns fees while active.
+5. A limit order deposits liquidity at a selected tick; it may remain open indefinitely until traded, canceled, or claimed by its owner.
+
+## Key facts
+- iziSwap is a decentralized exchange and AMM protocol, not a blockchain, wallet, bridge, or centralized exchange.
+- Users retain control through their wallets; confirmed trades are executed by smart contracts on the selected network.
+- Major deployments include BNB Chain (chain ID 56), Polygon (137), zkSync Era (324), Arbitrum One (42161), Mantle (5000), Base (8453), and Linea (59144).
+- Additional deployments and protocol-based DEX-as-a-Service instances are documented in the official contract registry.
+- Pools use fee tiers of 1%, 0.2%, 0.04%, or 0.01%; the applicable tier is shown with the selected pool.
+- Supported assets are EVM tokens with deployed pools and sufficient liquidity, not a permanent universal token list.
+- Liquidity positions use the ERC-721 NFT standard; the iZi utility token is an ERC-20 token.
+- A market swap normally completes within one transaction’s confirmation time; token approval may require a separate transaction.
+- Limit-order execution time is not guaranteed because execution requires compatible trading flow at the specified tick.
+- Published audits reduce neither smart-contract, token, liquidity, MEV, nor user-interface risk to zero.
+
+## Common questions
+- **Is iziSwap safe?** Its contracts are open source and portions were reviewed by CertiK, but audits are limited in scope and are not guarantees. Verify the domain, network, token contract, route, approvals, and slippage before signing.
+- **Does iziSwap hold my funds?** The interface does not take custody like a centralized exchange. Swaps settle through contracts, while liquidity and open orders place assets under smart-contract rules until removed, canceled, or claimed.
+- **What fees will I pay?** A swap can include the pool fee, network gas, and price impact. Failed transactions can still consume gas.
+- **How long does a swap take?** Usually one network confirmation after signing, plus a prior approval when needed. Congestion and the chosen chain determine actual timing.
+- **Which assets and chains are supported?** Availability depends on current deployments, token lists, pools, and liquidity on each EVM network; consult the app and deployed-contract registry.
+- **How do I start?** Research the pair, open the verified official app, connect a compatible wallet, select the correct network, review the quote and approvals, then sign.
+- **What are the main risks?** Smart-contract defects, malicious or counterfeit tokens, low liquidity, slippage, MEV or sandwich attacks, approval exposure, network failures, and impermanent loss for liquidity providers.
+
+## App
+- Dashboard: https://iziswap-page.github.io/
+- App: https://izumi.finance/trade/swap
+
+## Official resources
+Official website: https://izumi.finance/home
+iziSwap documentation: https://docs.izumi.finance/product/iziswap
+User tutorials: https://docs.izumi.finance/tutorial/how-to-use-iziswap
+Developer documentation: https://developer.izumi.finance/
+Mainnet contracts: https://developer.izumi.finance/iZiSwap/deployed_contracts/mainnet
+GitHub organization: https://github.com/izumiFinance
+Core contracts: https://github.com/izumiFinance/iZiSwap-core
+Periphery contracts: https://github.com/izumiFinance/iZiSwap-periphery
+SDK: https://github.com/izumiFinance/iZiSwap-sdk
+Technical paper: https://assets.izumi.finance/paper/dswap.pdf
+CertiK audit profile: https://skynet.certik.com/en/projects/izumi-finance
+Official X: https://x.com/izumi_Finance
+
+## Data & references
+DeFiLlama protocol profile: https://defillama.com/protocol/dexs/iziswap
+CoinGecko iZi token profile: https://www.coingecko.com/en/coins/izumi-finance
+CoinGecko iziSwap zkSync markets: https://www.coingecko.com/en/exchanges/iziswap-zksync
+Ethereum iZi contract: https://etherscan.io/token/0x9ad37205d608b8b219e6a2573f922094cec5c200
+ERC-20 standard: https://eips.ethereum.org/EIPS/eip-20
+ERC-721 standard: https://eips.ethereum.org/EIPS/eip-721
