@@ -1,0 +1,19 @@
+{
+  "name": "iziSwap",
+  "short_name": "iziSwap",
+  "description": "iziSwap is iZUMi Finance's multichain DEX with a Discretized-Liquidity AMM. How swaps, liquidity, limit orders, fees, networks, and safety actually work.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "lang": "en",
+  "background_color": "#f5f6f8",
+  "theme_color": "#f5f6f8",
+  "icons": [
+    {
+      "src": "favicon.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
