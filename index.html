@@ -1,1107 +1,231 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>iZiSwap — Concentrated Liquidity DEX with Limit-Order Swaps</title>
-<meta name="description" content="iZiSwap is iZUMi Finance's concentrated-liquidity DEX, using a Discretized-Liquidity AMM so swaps and liquidity behave like on-chain limit orders. See how it differs from a constant-product AMM.">
-<link rel="canonical" href="https://iziswap-page.github.io/">
-<meta property="og:type" content="website">
-<meta property="og:title" content="iZiSwap">
-<meta property="og:description" content="iZiSwap is iZUMi Finance's concentrated-liquidity DEX, using a Discretized-Liquidity AMM so swaps and liquidity behave like on-chain limit orders. See how it differs from a constant-product AMM.">
-<meta property="og:url" content="https://iziswap-page.github.io/">
-<meta property="og:image" content="https://iziswap-page.github.io/og.png">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="iZiSwap">
-<meta name="twitter:description" content="iZiSwap is iZUMi Finance's concentrated-liquidity DEX, using a Discretized-Liquidity AMM so swaps and liquidity behave like on-chain limit orders. See how it differs from a constant-product AMM.">
-<meta name="twitter:image" content="https://iziswap-page.github.io/og.png">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>iZiSwap — Concentrated Liquidity DEX with Limit-Order Swaps</title>
+  <meta name="description" content="iZiSwap is iZUMi Finance's concentrated-liquidity DEX, using a Discretized-Liquidity AMM so swaps and liquidity behave like on-chain limit orders. See how it differs from a constant-product AMM.">
+  <link rel="canonical" href="https://iziswap-page.github.io/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="iZiSwap">
+  <meta property="og:description" content="iZiSwap is iZUMi Finance's concentrated-liquidity DEX, using a Discretized-Liquidity AMM so swaps and liquidity behave like on-chain limit orders. See how it differs from a constant-product AMM.">
+  <meta property="og:url" content="https://iziswap-page.github.io/">
+  <meta property="og:image" content="https://iziswap-page.github.io/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="iZiSwap">
+  <meta name="twitter:description" content="iZiSwap is iZUMi Finance's concentrated-liquidity DEX, using a Discretized-Liquidity AMM so swaps and liquidity behave like on-chain limit orders. See how it differs from a constant-product AMM.">
+  <meta name="twitter:image" content="https://iziswap-page.github.io/og.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap">
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebSite", "@id": "https://iziswap-page.github.io/#website", "url": "https://iziswap-page.github.io/", "name": "iZiSwap — Concentrated Liquidity DEX with Limit-Order Swaps"}, {"@type": "WebPage", "@id": "https://iziswap-page.github.io/#webpage", "url": "https://iziswap-page.github.io/", "name": "iZiSwap — Concentrated Liquidity DEX with Limit-Order Swaps", "isPartOf": {"@id": "https://iziswap-page.github.io/#website"}, "description": "iZiSwap is iZUMi Finance's concentrated-liquidity DEX, using a Discretized-Liquidity AMM so swaps and liquidity behave like on-chain limit orders. See how it differs from a constant-product AMM.", "datePublished": "2026-10-10", "dateModified": "2026-10-10"}, {"@type": "SoftwareApplication", "name": "iZiSwap", "applicationCategory": "FinanceApplication", "operatingSystem": "Web", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://iziswap-page.github.io/"}, {"@type": "ListItem", "position": 2, "name": "Swaps"}, {"@type": "ListItem", "position": 3, "name": "iZiSwap"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is iZiSwap?", "acceptedAnswer": {"@type": "Answer", "text": "iZiSwap is a decentralized exchange from iZUMi Finance that replaces a single continuous liquidity curve with a Discretized-Liquidity AMM, letting liquidity sit at specific price points much like resting limit orders."}}, {"@type": "Question", "name": "How does iZiSwap's DL-AMM differ from a constant-product AMM?", "acceptedAnswer": {"@type": "Answer", "text": "A constant-product pool spreads liquidity across every price from zero to infinity. iZiSwap instead lets liquidity concentrate at discrete points chosen by the provider, which can make the same capital deeper near the current price and cheaper to trade against."}}, {"@type": "Question", "name": "Does iZiSwap support limit-order-style swaps?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Because liquidity sits at discrete price points, a position placed at a single point behaves like a resting limit order, filling only once the market price reaches that level."}}, {"@type": "Question", "name": "Which chains is iZiSwap available on?", "acceptedAnswer": {"@type": "Answer", "text": "iZiSwap is deployed across multiple EVM-compatible chains, so the same pools and interface are reachable on more than one network rather than being locked to a single chain."}}, {"@type": "Question", "name": "How much slippage should I expect on iZiSwap?", "acceptedAnswer": {"@type": "Answer", "text": "Slippage depends on how much liquidity sits near the current price and how large your trade is relative to it. Concentrated liquidity can reduce price impact compared with a pool that spreads the same capital thin, but very large trades still move through multiple price points."}}, {"@type": "Question", "name": "Does iZiSwap hold custody of my funds?", "acceptedAnswer": {"@type": "Answer", "text": "No. Every swap settles through a smart contract that holds funds only for the duration of the transaction, and the output asset returns directly to your connected wallet."}}, {"@type": "Question", "name": "What fees does iZiSwap charge?", "acceptedAnswer": {"@type": "Answer", "text": "Each pool on iZiSwap carries its own fee tier, charged on top of any price impact from the trade. The quoted minimum output already accounts for both before you confirm."}}]}]}</script>
-<style>
-:root{--bg:#F9FBFA;--surface:#FFFFFF;--text:#0E1A16;--muted:#536860;--accent:#0D9488;--accent-ink:#FFFFFF;--radius:18px;--display:"Outfit";--body:"Inter"}
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-html {
-  min-width: 280px;
-  scroll-behavior: smooth;
-  scroll-padding-top: 2rem;
-  background: var(--bg);
-  -webkit-text-size-adjust: 100%;
-}
-body {
-  margin: 0;
-  color: var(--text);
-  background: radial-gradient(ellipse at 50% 0%, color-mix(in srgb, var(--accent) 9%, transparent), transparent 42rem), var(--bg);
-  font-family: var(--body);
-  font-size: 1rem;
-  line-height: 1.65;
-  overflow-wrap: anywhere;
-  -webkit-font-smoothing: antialiased;
-}
-::selection {
-  color: var(--accent-ink);
-  background: var(--accent);
-}
-a {
-  color: var(--accent);
-  text-decoration-thickness: 1px;
-  text-underline-offset: 0.22em;
-  transition: color 160ms ease, background 160ms ease, box-shadow 160ms ease;
-}
-a:hover {
-  color: color-mix(in srgb, var(--accent) 76%, var(--text));
-}
-a:focus-visible,
-input:focus-visible,
-summary:focus-visible,
-[tabindex]:focus-visible {
-  outline: 3px solid var(--accent);
-  outline-offset: 5px;
-}
-img,
-svg {
-  max-width: 100%;
-  vertical-align: middle;
-}
-img {
-  height: auto;
-}
-input,
-output {
-  font-family: var(--body);
-}
-h1,
-h2,
-h3,
-h4 {
-  color: var(--text);
-  font-family: var(--display);
-  text-wrap: balance;
-}
-p,
-ul,
-ol,
-blockquote,
-figure {
-  margin: 0;
-}
-.c1f99a8 {
-  width: min(100% - 4rem, 1120px);
-  margin-inline: auto;
-}
-.c1eacbd {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1.5rem;
-  min-height: 92px;
-  border-bottom: 1px solid color-mix(in srgb, var(--text) 9%, transparent);
-}
-.cfe194f {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.7rem;
-  color: var(--text);
-  font-family: var(--display);
-  font-size: 1.2rem;
-  font-weight: 750;
-  letter-spacing: -0.045em;
-}
-.c29df88 {
-  display: grid;
-  width: 36px;
-  height: 36px;
-  place-items: center;
-  border: 1px solid color-mix(in srgb, var(--accent) 23%, transparent);
-  border-radius: calc(var(--radius) * 0.55);
-  color: var(--accent);
-  background: color-mix(in srgb, var(--accent) 10%, var(--surface));
-  font-size: 1.4rem;
-  line-height: 1;
-}
-.c9e3927 {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.7rem;
-  min-height: 42px;
-  padding: 0.55rem 1.1rem;
-  border: 1px solid color-mix(in srgb, var(--text) 14%, transparent);
-  border-radius: calc(var(--radius) * 0.65);
-  color: var(--text);
-  background: color-mix(in srgb, var(--surface) 80%, transparent);
-  font-size: 0.85rem;
-  font-weight: 650;
-  text-decoration: none;
-}
-.c9e3927:hover {
-  color: var(--accent);
-  border-color: color-mix(in srgb, var(--accent) 50%, transparent);
-  background: color-mix(in srgb, var(--accent) 7%, var(--surface));
-}
-.c9ca2c1 {
-  padding-block: 1.4rem 0.5rem;
-  color: var(--muted);
-  font-size: 0.78rem;
-}
-.c66946b {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.45rem 0.7rem;
-  margin: 0;
-  padding: 0;
-  color: var(--muted);
-  list-style: none;
-}
-.c66946b ol,
-.c66946b ul {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.45rem 0.7rem;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-.c66946b li {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.7rem;
-}
-.c66946b li + li::before {
-  content: "/";
-  color: color-mix(in srgb, var(--muted) 60%, transparent);
-}
-.c66946b a {
-  color: var(--muted);
-  text-decoration: none;
-}
-.c66946b a:hover {
-  color: var(--accent);
-  text-decoration: underline;
-}
-.c66946b [aria-current="page"] {
-  color: var(--text);
-}
-.c1de026 {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: clamp(1.5rem, 3.5vw, 2.75rem);
-  text-align: center;
-}
-.c3a9a3d {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.55rem;
-  margin-bottom: 1.25rem;
-  padding: 0.35rem 0.8rem;
-  border: 1px solid color-mix(in srgb, var(--accent) 20%, transparent);
-  border-radius: calc(var(--radius) * 2);
-  color: var(--accent);
-  background: color-mix(in srgb, var(--accent) 6%, var(--surface));
-  font-size: 0.8rem;
-  font-weight: 600;
-}
-.c3a9a3d::before {
-  content: "";
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--accent);
-  box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 10%, transparent);
-}
-.c1de026 h1 {
-  max-width: 960px;
-  margin: 0;
-  font-size: clamp(2.3rem, 5vw, 4.2rem);
-  font-weight: 650;
-  line-height: 1.06;
-  letter-spacing: -0.06em;
-}
-.c1de026 h1 em,
-.c1de026 h1 strong,
-.c1de026 h1 span {
-  color: var(--accent);
-}
-.c1de026 h1 em {
-  font-style: normal;
-}
-.ccf6051 {
-  max-width: 720px;
-  margin: 1.1rem auto 0;
-  color: var(--muted);
-  font-size: clamp(1rem, 1.65vw, 1.15rem);
-  line-height: 1.85;
-  text-wrap: pretty;
-}
-.c6944bf {
-  position: relative;
-  isolation: isolate;
-  width: 100%;
-  margin-top: clamp(1.25rem, 2.5vw, 2rem);
-  padding: clamp(1.2rem, 3.5vw, 2.6rem);
-  border: 1px solid color-mix(in srgb, var(--accent) 19%, var(--surface));
-  border-radius: var(--radius);
-  background: linear-gradient(145deg, color-mix(in srgb, var(--accent) 5%, var(--surface)), var(--surface) 48%);
-  box-shadow: 0 24px 65px -24px color-mix(in srgb, var(--text) 21%, transparent), 0 4px 14px -7px color-mix(in srgb, var(--accent) 16%, transparent);
-  text-align: left;
-}
-.c6944bf::before {
-  position: absolute;
-  inset: -1px 12% auto;
-  height: 2px;
-  content: "";
-  background: linear-gradient(90deg, color-mix(in srgb, var(--accent) 0%, transparent), color-mix(in srgb, var(--accent) 65%, transparent), color-mix(in srgb, var(--accent) 0%, transparent));
-}
-.cc1a494 {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.6rem 1rem;
-  margin-bottom: 1rem;
-}
-.cc1a494 h2 {
-  margin: 0;
-  font-size: 1.25rem;
-  font-weight: 650;
-  letter-spacing: -0.035em;
-}
-.cc1a494 p {
-  color: var(--muted);
-  font-size: 0.78rem;
-}
-.c12b4f6 {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
-  align-items: stretch;
-  gap: 1rem;
-}
-.cdb095a {
-  min-width: 0;
-  padding: 1.4rem 1.5rem 1.1rem;
-  border: 1px solid color-mix(in srgb, var(--text) 10%, transparent);
-  border-radius: calc(var(--radius) * 0.7);
-  background: color-mix(in srgb, var(--bg) 65%, var(--surface));
-  transition: border-color 160ms ease, box-shadow 160ms ease;
-}
-.cdb095a:focus-within {
-  border-color: var(--accent);
-  box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 9%, transparent);
-}
-.c38c244 {
-  border-color: color-mix(in srgb, var(--accent) 18%, transparent);
-  background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 8%, var(--surface)), color-mix(in srgb, var(--accent) 3%, var(--surface)));
-}
-.c7604b3 {
-  display: block;
-  margin-bottom: 0.65rem;
-  color: var(--muted);
-  font-size: 0.82rem;
-  font-weight: 550;
-}
-#amount {
-  display: block;
-  width: 100%;
-  min-width: 0;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  border-radius: 0;
-  color: var(--text);
-  background: color-mix(in srgb, var(--surface) 0%, transparent);
-  font-family: var(--body);
-  font-size: clamp(1.7rem, 3vw, 2.65rem);
-  font-weight: 550;
-  font-variant-numeric: tabular-nums;
-  line-height: 1.3;
-  letter-spacing: -0.045em;
-  appearance: textfield;
-  -moz-appearance: textfield;
-}
-#amount::-webkit-inner-spin-button,
-#amount::-webkit-outer-spin-button {
-  margin: 0;
-  -webkit-appearance: none;
-}
-#amount::placeholder {
-  color: var(--muted);
-  opacity: 0.65;
-}
-#amount:focus-visible {
-  outline-offset: 3px;
-  outline-width: 2px;
-}
-#amount[aria-invalid="true"] {
-  text-decoration: underline wavy;
-  text-decoration-color: var(--accent);
-  text-decoration-thickness: 1px;
-  text-underline-offset: 0.2em;
-}
-#received {
-  display: block;
-  min-height: 1.3em;
-  color: var(--text);
-  font-size: clamp(1.7rem, 3vw, 2.65rem);
-  font-weight: 550;
-  font-variant-numeric: tabular-nums;
-  line-height: 1.3;
-  letter-spacing: -0.045em;
-  overflow-wrap: anywhere;
-}
-.cf930a8 {
-  display: block;
-  margin-top: 0.6rem;
-  color: var(--muted);
-  font-size: 0.73rem;
-  line-height: 1.5;
-}
-.c674037 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  padding-inline: 0.15rem;
-}
-.ceb3648 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 0.3rem;
-  width: 48px;
-  min-height: 48px;
-  padding: 0.4rem;
-  border: 1px solid color-mix(in srgb, var(--text) 9%, transparent);
-  border-radius: calc(var(--radius) * 0.55);
-  background: var(--surface);
-  box-shadow: 0 4px 10px color-mix(in srgb, var(--text) 4%, transparent);
-  font-size: 0.65rem;
-  line-height: 1.2;
-  text-align: center;
-}
-.ceb3648 img,
-.ceb3648 svg {
-  display: block;
-  width: 30px;
-  height: 30px;
-  object-fit: contain;
-}
-.c3829e5 {
-  color: var(--accent);
-  font-size: 1.3rem;
-}
-.c916ffa {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(220px, 0.55fr);
-  align-items: center;
-  gap: 1.5rem 2.5rem;
-  margin-top: 1.4rem;
-}
-.c28b328 {
-  display: grid;
-  gap: 0.45rem;
-  margin: 0;
-  font-size: 0.8rem;
-}
-.c28b328 > div {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 1rem;
-}
-.c28b328 dt {
-  color: var(--muted);
-}
-.c28b328 dd {
-  margin: 0;
-  color: var(--text);
-  font-weight: 550;
-  font-variant-numeric: tabular-nums;
-  text-align: right;
-}
-.c71cbaa {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1.5rem;
-  min-height: 56px;
-  padding: 0.9rem 1.3rem;
-  border: 1px solid color-mix(in srgb, var(--accent) 85%, var(--text));
-  border-radius: calc(var(--radius) * 0.65);
-  color: var(--accent-ink);
-  background: linear-gradient(120deg, var(--accent), color-mix(in srgb, var(--accent) 85%, var(--text)));
-  box-shadow: 0 8px 22px -8px color-mix(in srgb, var(--accent) 45%, transparent);
-  font-size: 0.9rem;
-  font-weight: 650;
-  text-decoration: none;
-  transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
-}
-.c71cbaa:hover {
-  transform: translateY(-2px);
-  color: var(--accent-ink);
-  background: linear-gradient(120deg, color-mix(in srgb, var(--accent) 94%, var(--text)), color-mix(in srgb, var(--accent) 78%, var(--text)));
-  box-shadow: 0 12px 28px -9px color-mix(in srgb, var(--accent) 50%, transparent);
-}
-.c71cbaa:active {
-  transform: translateY(0);
-}
-.c71cbaa span:last-child {
-  font-size: 1.3rem;
-  line-height: 1;
-}
-.c2b4abd {
-  min-height: 1.5em;
-  margin-top: 0.8rem;
-  color: var(--muted);
-  font-size: 0.75rem;
-}
-.c2b4abd[data-invalid="true"] {
-  color: var(--text);
-  font-weight: 600;
-}
-.c813473 {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 1px;
-  margin-block: 1.6rem 4.5rem;
-  padding: 1rem 0;
-  border-block: 1px solid color-mix(in srgb, var(--text) 8%, transparent);
-  list-style: none;
-}
-.c813473 li {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.6rem;
-  padding: 0.6rem 0.75rem;
-  color: var(--muted);
-  font-size: 0.8rem;
-  text-align: center;
-}
-.c813473 li + li {
-  border-left: 1px solid color-mix(in srgb, var(--text) 9%, transparent);
-}
-.c813473 li::before {
-  content: "✓";
-  color: var(--accent);
-  font-size: 0.85rem;
-  font-weight: 650;
-}
-.ce11a3b {
-  margin-bottom: 4rem;
-  padding: clamp(1.25rem, 3.5vw, 2.75rem);
-  border: 1px solid color-mix(in srgb, var(--text) 9%, transparent);
-  border-radius: var(--radius);
-  background: var(--surface);
-  box-shadow: 0 12px 35px -22px color-mix(in srgb, var(--text) 18%, transparent);
-}
-.c9e4289 {
-  margin: 0 0 1.6rem;
-  font-size: clamp(1.5rem, 2.5vw, 2rem);
-  font-weight: 600;
-  line-height: 1.2;
-  letter-spacing: -0.045em;
-}
-.ce57e1c {
-  overflow-x: auto;
-  overscroll-behavior-inline: contain;
-}
-.c47da02 {
-  width: 100%;
-  border-collapse: collapse;
-  color: var(--text);
-  font-size: 0.92rem;
-  line-height: 1.65;
-  text-align: left;
-}
-.c47da02 caption {
-  margin-bottom: 1rem;
-  color: var(--muted);
-  font-size: 0.85rem;
-  text-align: left;
-}
-.c47da02 th,
-.c47da02 td {
-  padding: 1.05rem 1.2rem;
-  border-bottom: 1px solid color-mix(in srgb, var(--text) 8%, transparent);
-  vertical-align: top;
-}
-.c47da02 th {
-  width: 31%;
-  color: var(--muted);
-  font-weight: 500;
-}
-.c47da02 td {
-  font-weight: 550;
-}
-.c47da02 tr:nth-child(odd) {
-  background: color-mix(in srgb, var(--accent) 3%, var(--surface));
-}
-.c47da02 tr:last-child > * {
-  border-bottom: 0;
-}
-.c47da02 thead th {
-  color: var(--text);
-  background: color-mix(in srgb, var(--accent) 7%, var(--surface));
-  font-weight: 650;
-}
-.c5a2f0c {
-  width: min(100%, 860px);
-  margin-inline: auto;
-}
-.ccf79a1 {
-  margin-block: 0 3.6rem;
-  padding-bottom: 3.2rem;
-  border-bottom: 1px solid color-mix(in srgb, var(--text) 9%, transparent);
-  scroll-margin-top: 2rem;
-}
-.cca94a5 {
-  margin: 0 0 1.25rem;
-  color: var(--text);
-  font-family: var(--display);
-  font-size: clamp(1.6rem, 3vw, 2.4rem);
-  font-weight: 600;
-  line-height: 1.2;
-  letter-spacing: -0.045em;
-}
-.ccf8dd3 {
-  color: var(--muted);
-  font-family: var(--body);
-  font-size: 1rem;
-  line-height: 1.85;
-}
-.ccf8dd3 > * + * {
-  margin-top: 1.25rem;
-}
-.ccf8dd3 h3,
-.ccf8dd3 h4 {
-  margin-block: 2rem 0.75rem;
-  color: var(--text);
-  font-family: var(--display);
-  font-size: 1.3rem;
-  font-weight: 600;
-  line-height: 1.35;
-  letter-spacing: -0.025em;
-}
-.ccf8dd3 h4 {
-  font-size: 1.1rem;
-}
-.ccf8dd3 strong,
-.c322d71 strong {
-  color: var(--text);
-  font-weight: 650;
-}
-.ccf8dd3 ul,
-.ccf8dd3 ol,
-.c322d71 ul,
-.c322d71 ol {
-  padding-left: 1.4rem;
-}
-.ccf8dd3 li,
-.c322d71 li {
-  padding-left: 0.3rem;
-}
-.ccf8dd3 li + li,
-.c322d71 li + li {
-  margin-top: 0.65rem;
-}
-.ccf8dd3 li::marker,
-.c322d71 li::marker {
-  color: var(--accent);
-}
-.ccf8dd3 li > ul,
-.ccf8dd3 li > ol {
-  margin-top: 0.65rem;
-}
-.ccf8dd3 blockquote {
-  padding: 1.25rem 1.5rem;
-  border-left: 3px solid var(--accent);
-  border-radius: 0 calc(var(--radius) * 0.45) calc(var(--radius) * 0.45) 0;
-  color: var(--text);
-  background: color-mix(in srgb, var(--accent) 6%, var(--surface));
-}
-.ccf8dd3 blockquote p + p {
-  margin-top: 0.8rem;
-}
-.ccf8dd3 table {
-  display: block;
-  width: 100%;
-  max-width: 100%;
-  overflow-x: auto;
-  border-collapse: collapse;
-  border: 1px solid color-mix(in srgb, var(--text) 12%, transparent);
-  border-radius: calc(var(--radius) * 0.6);
-  background: var(--surface);
-  font-size: 0.88rem;
-  line-height: 1.6;
-  text-align: left;
-  overscroll-behavior-inline: contain;
-}
-.ccf8dd3 table th,
-.ccf8dd3 table td {
-  min-width: 8rem;
-  padding: 0.95rem 1.15rem;
-  border-bottom: 1px solid color-mix(in srgb, var(--text) 9%, transparent);
-  vertical-align: top;
-}
-.ccf8dd3 table th {
-  color: var(--text);
-  background: color-mix(in srgb, var(--accent) 7%, var(--surface));
-  font-weight: 600;
-}
-.ccf8dd3 table tbody tr:nth-child(even) {
-  background: color-mix(in srgb, var(--bg) 65%, var(--surface));
-}
-.ccf8dd3 table tr:last-child td {
-  border-bottom: 0;
-}
-.ccf8dd3 table caption {
-  padding: 0.85rem 1.15rem;
-  color: var(--muted);
-  font-size: 0.8rem;
-  text-align: left;
-}
-.ccf8dd3 code,
-.ccf8dd3 pre {
-  border-radius: calc(var(--radius) * 0.3);
-  color: var(--text);
-  background: color-mix(in srgb, var(--text) 5%, var(--surface));
-  font-family: var(--body);
-  font-size: 0.9em;
-}
-.ccf8dd3 code {
-  padding: 0.15em 0.4em;
-}
-.ccf8dd3 pre {
-  overflow-x: auto;
-  padding: 1.2rem;
-}
-.ccf8dd3 pre code {
-  padding: 0;
-  background: color-mix(in srgb, var(--surface) 0%, transparent);
-}
-.ccf8dd3 figure img {
-  display: block;
-  border-radius: calc(var(--radius) * 0.7);
-}
-.ccf8dd3 figcaption {
-  margin-top: 0.7rem;
-  color: var(--muted);
-  font-size: 0.8rem;
-}
-.c033749 {
-  margin-block: 1rem;
-  border: 1px solid color-mix(in srgb, var(--text) 10%, transparent);
-  border-radius: calc(var(--radius) * 0.7);
-  background: var(--surface);
-  transition: border-color 180ms ease, box-shadow 180ms ease;
-}
-.c033749:hover {
-  border-color: color-mix(in srgb, var(--accent) 35%, transparent);
-}
-.c033749[open] {
-  border-color: color-mix(in srgb, var(--accent) 30%, transparent);
-  box-shadow: 0 8px 25px -14px color-mix(in srgb, var(--text) 15%, transparent);
-}
-.c1f0425 {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1.5rem;
-  padding: 1.3rem 1.5rem;
-  border-radius: calc(var(--radius) * 0.7);
-  color: var(--text);
-  font-family: var(--display);
-  font-size: 1.04rem;
-  font-weight: 550;
-  line-height: 1.5;
-  list-style: none;
-  cursor: pointer;
-}
-.c1f0425::-webkit-details-marker {
-  display: none;
-}
-.c1f0425::after {
-  display: grid;
-  flex: 0 0 27px;
-  width: 27px;
-  height: 27px;
-  place-items: center;
-  content: "+";
-  border-radius: 50%;
-  color: var(--accent);
-  background: color-mix(in srgb, var(--accent) 9%, var(--surface));
-  font-family: var(--body);
-  font-size: 1.2rem;
-  font-weight: 400;
-  line-height: 1;
-}
-.c033749[open] > .c1f0425::after {
-  content: "−";
-}
-.c322d71 {
-  padding: 0 1.5rem 1.5rem;
-  color: var(--muted);
-  font-family: var(--body);
-  font-size: 0.95rem;
-  line-height: 1.85;
-}
-.c322d71 > * + * {
-  margin-top: 1rem;
-}
-.c809346 {
-  margin-top: 4rem;
-  padding: 2.2rem 0 2.5rem;
-  border-top: 1px solid color-mix(in srgb, var(--text) 10%, transparent);
-}
-.c809346 .c9e4289 {
-  margin-bottom: 1.2rem;
-  font-size: 1.35rem;
-}
-.c25b1b7 {
-  display: grid;
-  gap: 0.7rem;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-.cbcaba5 {
-  min-width: 0;
-  padding: 0.8rem 1rem;
-  border: 1px solid color-mix(in srgb, var(--text) 8%, transparent);
-  border-radius: calc(var(--radius) * 0.45);
-  color: var(--muted);
-  background: color-mix(in srgb, var(--surface) 70%, var(--bg));
-  font-size: 0.82rem;
-  line-height: 1.7;
-  overflow-wrap: anywhere;
-}
-.cbcaba5 a,
-a.cbcaba5 {
-  color: var(--text);
-  text-decoration-color: color-mix(in srgb, var(--accent) 40%, transparent);
-}
-.cbcaba5 a:hover,
-a.cbcaba5:hover {
-  color: var(--accent);
-  text-decoration-color: var(--accent);
-}
-.cc8a342 {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem 2rem;
-  margin-top: 1rem;
-  padding-block: 1.7rem 2.2rem;
-  border-top: 1px solid color-mix(in srgb, var(--text) 10%, transparent);
-  color: var(--muted);
-  font-size: 0.78rem;
-}
-.c34ff26 {
-  color: var(--text);
-  font-family: var(--display);
-  font-size: 0.95rem;
-  font-weight: 600;
-  letter-spacing: -0.025em;
-}
-.c14da88 span {
-  color: var(--text);
-}
-@media (min-width: 1280px) {
-  .c1de026 {
-    padding-top: 5.2rem;
-  }
-  .c6944bf {
-    margin-top: 3.4rem;
-  }
-  .cdb095a {
-    padding-block: 1.6rem 1.3rem;
-  }
-}
-@media (max-width: 900px) {
-  .c1f99a8 {
-    width: min(100% - 3rem, 1120px);
-  }
-  .c12b4f6 {
-    gap: 0.65rem;
-  }
-  .cdb095a {
-    padding: 1.1rem;
-  }
-  .c674037 {
-    flex-direction: column;
-    gap: 0.2rem;
-  }
-  .ceb3648 {
-    width: 38px;
-    min-height: 38px;
-  }
-  .ceb3648 img,
-  .ceb3648 svg {
-    width: 25px;
-    height: 25px;
-  }
-  .c3829e5 {
-    line-height: 1;
-  }
-  .c813473 {
-    margin-bottom: 3rem;
-  }
-}
-@media (max-width: 640px) {
-  html {
-    scroll-padding-top: 1rem;
-  }
-  .c1f99a8 {
-    width: calc(100% - 2rem);
-  }
-  .c1eacbd {
-    min-height: 76px;
-    gap: 0.75rem;
-  }
-  .cfe194f {
-    gap: 0.5rem;
-    font-size: 1.08rem;
-  }
-  .c9e3927 {
-    min-height: 40px;
-    padding: 0.45rem 0.8rem;
-    font-size: 0.78rem;
-  }
-  .c9ca2c1 {
-    padding-top: 1rem;
-  }
-  .c1de026 {
-    padding-top: 2.4rem;
-  }
-  .c1de026 h1 {
-    font-size: clamp(2.25rem, 10vw, 3.6rem);
-    letter-spacing: -0.05em;
-  }
-  .ccf6051 {
-    margin-top: 1.1rem;
-    line-height: 1.75;
-  }
-  .c6944bf {
-    padding: 1.1rem;
-  }
-  .cc1a494 {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 0.3rem;
-    margin-bottom: 1.1rem;
-  }
-  .c12b4f6 {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 0.7rem;
-  }
-  .cdb095a {
-    padding: 1.2rem;
-  }
-  #amount,
-  #received {
-    font-size: clamp(1.8rem, 8vw, 2.6rem);
-  }
-  .c674037 {
-    flex-direction: row;
-    gap: 0.8rem;
-    padding-block: 0.1rem;
-  }
-  .ceb3648 {
-    width: 40px;
-    min-height: 40px;
-  }
-  .c916ffa {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 1.2rem;
-    margin-top: 1.2rem;
-  }
-  .c28b328 {
-    font-size: 0.78rem;
-  }
-  .c71cbaa {
-    min-height: 54px;
-  }
-  .c813473 {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 0;
-    margin-block: 1.4rem 2.6rem;
-    padding-block: 0.5rem;
-  }
-  .c813473 li {
-    justify-content: flex-start;
-    padding: 0.7rem 1rem;
-  }
-  .c813473 li + li {
-    border-top: 1px solid color-mix(in srgb, var(--text) 6%, transparent);
-    border-left: 0;
-  }
-  .ce11a3b {
-    margin-bottom: 2.8rem;
-    padding: 1.2rem;
-  }
-  .c9e4289 {
-    margin-bottom: 1.2rem;
-  }
-  .c47da02 {
-    font-size: 0.82rem;
-  }
-  .c47da02 th,
-  .c47da02 td {
-    padding: 0.8rem 0.6rem;
-  }
-  .c47da02 th {
-    width: 38%;
-  }
-  .ccf79a1 {
-    margin-bottom: 2.5rem;
-    padding-bottom: 2.3rem;
-  }
-  .ccf8dd3 {
-    font-size: 0.95rem;
-    line-height: 1.8;
-  }
-  .ccf8dd3 h3 {
-    font-size: 1.2rem;
-  }
-  .ccf8dd3 blockquote {
-    padding: 1rem 1.15rem;
-  }
-  .c1f0425 {
-    gap: 0.9rem;
-    padding: 1.1rem;
-    font-size: 0.98rem;
-  }
-  .c322d71 {
-    padding: 0 1.1rem 1.2rem;
-    font-size: 0.9rem;
-  }
-  .c809346 {
-    margin-top: 2.6rem;
-    padding-block: 1.8rem;
-  }
-  .cc8a342 {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.45rem;
-    padding-block: 1.4rem 1.8rem;
-  }
-}
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-  *,
-  *::before,
-  *::after {
-    transition: none;
-    animation: none;
-  }
-  .c71cbaa:hover {
-    transform: none;
-  }
-}
-@media print {
-  body {
-    background: var(--bg);
-  }
-  .c1f99a8,
-  .c5a2f0c {
-    width: 100%;
-  }
-  .c9e3927,
-  .c71cbaa {
-    display: none;
-  }
-  .c1de026 {
-    padding-top: 1.5rem;
-  }
-  .c1de026 h1 {
-    font-size: 2.6rem;
-  }
-  .c6944bf,
-  .ce11a3b,
-  .c033749 {
-    box-shadow: none;
-    break-inside: avoid;
-  }
-  .ccf8dd3 h3,
-  .cca94a5 {
-    break-after: avoid;
-  }
-  .ccf8dd3 table {
-    display: table;
-    overflow: visible;
-  }
-}
-</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebSite", "@id": "https://iziswap-page.github.io/#website", "url": "https://iziswap-page.github.io/", "name": "iZiSwap — Concentrated Liquidity DEX with Limit-Order Swaps"}, {"@type": "WebPage", "@id": "https://iziswap-page.github.io/#webpage", "url": "https://iziswap-page.github.io/", "name": "iZiSwap — Concentrated Liquidity DEX with Limit-Order Swaps", "isPartOf": {"@id": "https://iziswap-page.github.io/#website"}, "description": "iZiSwap is iZUMi Finance's concentrated-liquidity DEX, using a Discretized-Liquidity AMM so swaps and liquidity behave like on-chain limit orders. See how it differs from a constant-product AMM.", "datePublished": "2026-10-11", "dateModified": "2026-10-11"}, {"@type": "SoftwareApplication", "name": "iZiSwap", "applicationCategory": "FinanceApplication", "operatingSystem": "Web", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://iziswap-page.github.io/"}, {"@type": "ListItem", "position": 2, "name": "Swaps"}, {"@type": "ListItem", "position": 3, "name": "iZiSwap"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is iZiSwap?", "acceptedAnswer": {"@type": "Answer", "text": "iZiSwap is a decentralized exchange from iZUMi Finance that replaces a single continuous liquidity curve with a Discretized-Liquidity AMM, letting liquidity sit at specific price points much like resting limit orders."}}, {"@type": "Question", "name": "How does iZiSwap's DL-AMM differ from a constant-product AMM?", "acceptedAnswer": {"@type": "Answer", "text": "A constant-product pool spreads liquidity across every price from zero to infinity. iZiSwap instead lets liquidity concentrate at discrete points chosen by the provider, which can make the same capital deeper near the current price and cheaper to trade against."}}, {"@type": "Question", "name": "Does iZiSwap support limit-order-style swaps?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Because liquidity sits at discrete price points, a position placed at a single point behaves like a resting limit order, filling only once the market price reaches that level."}}, {"@type": "Question", "name": "Which chains is iZiSwap available on?", "acceptedAnswer": {"@type": "Answer", "text": "iZiSwap is deployed across multiple EVM-compatible chains, so the same pools and interface are reachable on more than one network rather than being locked to a single chain."}}, {"@type": "Question", "name": "How much slippage should I expect on iZiSwap?", "acceptedAnswer": {"@type": "Answer", "text": "Slippage depends on how much liquidity sits near the current price and how large your trade is relative to it. Concentrated liquidity can reduce price impact compared with a pool that spreads the same capital thin, but very large trades still move through multiple price points."}}, {"@type": "Question", "name": "Does iZiSwap hold custody of my funds?", "acceptedAnswer": {"@type": "Answer", "text": "No. Every swap settles through a smart contract that holds funds only for the duration of the transaction, and the output asset returns directly to your connected wallet."}}, {"@type": "Question", "name": "What fees does iZiSwap charge?", "acceptedAnswer": {"@type": "Answer", "text": "Each pool on iZiSwap carries its own fee tier, charged on top of any price impact from the trade. The quoted minimum output already accounts for both before you confirm."}}]}]}</script>
+  <style>
+    :root{--bg:#F9FBFA;--surface:#FFFFFF;--text:#0E1A16;--muted:#536860;--accent:#0D9488;--accent-ink:#FFFFFF;--radius:18px;--display:"Outfit";--body:"Inter"}
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 2rem; }
+    body { margin: 0; background: var(--bg); color: var(--text); font: 400 1rem/1.7 var(--body); -webkit-font-smoothing: antialiased; }
+    a { color: var(--accent); text-underline-offset: .22em; }
+    a:hover { text-decoration-thickness: .12em; }
+    :focus-visible { outline: 3px solid var(--accent); outline-offset: 5px; }
+    ::selection { background: var(--accent); color: var(--accent-ink); }
+    h1, h2, h3, h4, h5, h6 { font-family: var(--display); line-height: 1.15; text-wrap: balance; }
+    p, h1, h2, h3 { margin-top: 0; }
+    img, svg { max-width: 100%; vertical-align: middle; }
+    .c1f99a8 { width: min(1180px, calc(100% - 3rem)); margin-inline: auto; }
+    .c9e5f5e { position: absolute; z-index: 5; top: .5rem; left: 1rem; padding: .7rem 1rem; background: var(--surface); transform: translateY(-180%); border-radius: var(--radius); }
+    .c9e5f5e:focus { transform: translateY(0); }
+    .cc04ac5 { border-bottom: 1px solid color-mix(in srgb,var(--text) 10%,transparent); }
+    .c215098 { min-height: 88px; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; }
+    .cfa9a30 { display: inline-flex; align-items: center; gap: .7rem; color: var(--text); font: 650 1.12rem/1.2 var(--display); text-decoration: none; }
+    .c143b5f { display: grid; place-items: center; width: 2.4rem; height: 2.4rem; border-radius: calc(var(--radius) * .6); background: var(--accent); color: var(--accent-ink); }
+    .c51ab85 { width: 1.2rem; height: 1.2rem; fill: none; stroke: var(--accent-ink); stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; flex: 0 0 auto; }
+    .ca388cf { display: flex; align-items: center; gap: 1.8rem; }
+    .ca388cf > a { font-size: .88rem; font-weight: 600; text-decoration: none; }
+    .ca388cf > a:not(.c953198) { color: var(--muted); }
+    .c953198 { display: inline-flex; align-items: center; justify-content: center; gap: .8rem; min-height: 52px; padding: .85rem 1.4rem; border: 1px solid color-mix(in srgb,var(--accent-ink) 12%,transparent); border-radius: var(--radius); background: linear-gradient(135deg,var(--accent),color-mix(in srgb,var(--accent) 88%,var(--text))); color: var(--accent-ink); font: 650 .95rem/1.3 var(--body); text-decoration: none; box-shadow: 0 6px 18px color-mix(in srgb,var(--accent) 17%,transparent); transition: transform .18s ease, box-shadow .18s ease; }
+    .c953198:hover { transform: translateY(-2px); box-shadow: 0 9px 24px color-mix(in srgb,var(--accent) 25%,transparent); }
+    .c215098 .c953198 { min-height: 42px; padding: .65rem 1rem; }
+    .c5fec03 { padding-block: 1rem 0; color: var(--muted); font-size: .8rem; overflow-wrap: anywhere; }
+    .c66946b { color: var(--muted); }
+    .c66946b a, a.c66946b { color: var(--muted); text-decoration: none; }
+    .c66946b a:hover, a.c66946b:hover { color: var(--accent); text-decoration: underline; }
+    .c66946b ol, .c66946b ul { display: flex; flex-wrap: wrap; gap: .5rem 1rem; padding: 0; margin: 0; list-style: none; }
+    .c1de026 { display: grid; grid-template-columns: minmax(0,1.05fr) minmax(0,1fr); gap: clamp(2rem,5vw,4.5rem); align-items: start; padding-block: 1.5rem 3rem; }
+    .c3a9a3d { display: inline-flex; align-items: center; gap: .55rem; margin-bottom: 1.3rem; color: var(--accent); font-size: .86rem; font-weight: 600; }
+    .c3a9a3d::before { content: ""; width: .5rem; height: .5rem; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 5px color-mix(in srgb,var(--accent) 9%,transparent); }
+    h1 { margin-bottom: 1.4rem; font-size: clamp(2.5rem,4.7vw,4.35rem); font-weight: 600; letter-spacing: -.055em; overflow-wrap: anywhere; }
+    h1 em { color: var(--accent); font-style: normal; }
+    .c8a547d { max-width: 48ch; margin-bottom: 2rem; color: var(--muted); font-size: 1.08rem; line-height: 1.8; }
+    .c85965a { position: relative; min-width: 0; padding: clamp(1.1rem,2.4vw,1.5rem); border: 1px solid color-mix(in srgb,var(--accent) 20%,var(--surface)); border-radius: calc(var(--radius) * 1.6); background: linear-gradient(155deg,color-mix(in srgb,var(--accent) 7%,var(--surface)),var(--surface) 40%); box-shadow: 0 24px 64px color-mix(in srgb,var(--text) 9%,transparent),0 4px 12px color-mix(in srgb,var(--accent) 6%,transparent); }
+    .ce85069 { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .7rem; margin-bottom: 1rem; }
+    .ce85069 h2 { margin: 0; font-size: 1.35rem; letter-spacing: -.035em; }
+    .c5d6968 { display: inline-flex; align-items: center; gap: .4rem; padding: .3rem .65rem; border: 1px solid color-mix(in srgb,var(--accent) 16%,transparent); border-radius: 999px; background: color-mix(in srgb,var(--accent) 8%,var(--surface)); color: var(--accent); font-size: .72rem; font-weight: 600; }
+    .c5d6968::before { content: ""; width: .35rem; height: .35rem; border-radius: 50%; background: var(--accent); }
+    .route { display: grid; grid-template-columns: minmax(0,1fr) auto minmax(0,1fr); align-items: center; gap: .8rem; padding: .8rem; margin-bottom: 1rem; border: 1px solid color-mix(in srgb,var(--text) 9%,transparent); border-radius: var(--radius); background: var(--surface); }
+    .endpoint { min-width: 0; display: flex; flex-direction: column; align-items: flex-start; gap: .45rem; }
+    .endpoint:last-child { align-items: flex-end; }
+    .endpoint-label, .c7604b3 { color: var(--muted); font-size: .78rem; font-weight: 500; }
+    .logo { display: flex; align-items: center; min-height: 36px; max-width: 100%; overflow-wrap: anywhere; font: 600 1rem/1.3 var(--display); }
+    .logo img, .logo svg { max-height: 36px; width: auto; max-width: 100%; object-fit: contain; }
+    .route-arrow { display: grid; place-items: center; width: 2.25rem; height: 2.25rem; border-radius: 50%; background: color-mix(in srgb,var(--accent) 9%,var(--surface)); }
+    .route-arrow .c51ab85 { stroke: var(--accent); }
+    .c7604b3 { display: block; margin-bottom: .5rem; color: var(--text); }
+    .amount-field { display: flex; align-items: center; gap: .75rem; padding: .8rem 1rem; border: 1px solid color-mix(in srgb,var(--text) 18%,transparent); border-radius: var(--radius); background: var(--bg); transition: border-color .18s ease; }
+    .amount-field:focus-within { border-color: var(--accent); box-shadow: 0 0 0 3px color-mix(in srgb,var(--accent) 12%,transparent); }
+    .amount-field input { width: 100%; min-width: 0; padding: .2rem 0; border: 0; background: var(--bg); color: var(--text); font: 550 1.6rem/1.2 var(--display); font-variant-numeric: tabular-nums; }
+    .amount-field input:focus { outline: 0; }
+    .unit { color: var(--muted); font-size: .8rem; }
+    .c151f51 { margin: .45rem 0 .85rem; color: var(--muted); font-size: .74rem; }
+    .field-error { margin: .5rem 0; color: var(--text); font-size: .8rem; font-weight: 600; }
+    [hidden] { display: none !important; }
+    .estimate { padding: 1rem; border-radius: var(--radius); background: linear-gradient(120deg,color-mix(in srgb,var(--accent) 12%,var(--surface)),color-mix(in srgb,var(--accent) 4%,var(--surface))); }
+    .estimate-label { margin-bottom: .25rem; color: var(--muted); font-size: .8rem; }
+    .estimate-value { display: block; color: var(--text); font: 600 clamp(1.7rem,3vw,2.5rem)/1.3 var(--display); letter-spacing: -.04em; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+    .estimate-value small { color: var(--muted); font: 400 .8rem/1.4 var(--body); letter-spacing: 0; }
+    .estimate dl { display: grid; gap: .5rem; margin: .8rem 0 0; padding-top: .8rem; border-top: 1px solid color-mix(in srgb,var(--accent) 15%,transparent); font-size: .8rem; }
+    .estimate dl div { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .25rem 1rem; }
+    .estimate dt { color: var(--muted); }
+    .estimate dd { margin: 0; font-weight: 600; font-variant-numeric: tabular-nums; }
+    .method { margin-block: .7rem; color: var(--muted); font-size: .75rem; }
+    .method summary { width: fit-content; color: var(--text); cursor: pointer; }
+    .method p { margin: .65rem 0 0; }
+    .c85965a > .c953198 { width: 100%; }
+    .c8126da { padding: .8rem 1rem; border: 1px solid color-mix(in srgb,var(--text) 10%,transparent); border-radius: var(--radius); background: var(--surface); }
+    .c5ddf1f { margin-bottom: .45rem; }
+    .c5bb7b9 { display: flex; align-items: center; gap: .75rem; }
+    .cd7f563 { flex: 1; min-width: 0; padding: 0; border: 0; background: transparent; color: var(--text); font: 550 1.55rem/1.2 var(--display); font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+    .cd7f563:focus { outline: 0; }
+    .cadba89 { position: relative; display: inline-flex; align-items: center; gap: .5rem; flex: none; padding: .4rem 1.5rem .4rem .5rem; border: 1px solid color-mix(in srgb,var(--text) 13%,transparent); border-radius: 999px; background: var(--bg); }
+    .c0e5f99 { width: 22px; height: 22px; border-radius: 50%; object-fit: contain; flex: none; }
+    .ccdf798 { border: 0; background: transparent; color: var(--text); font: 600 .95rem/1 var(--body); cursor: pointer; appearance: none; -webkit-appearance: none; }
+    .ccdf798:focus { outline: 0; }
+    .cadba89::after { content: ""; position: absolute; right: .7rem; width: .42rem; height: .42rem; border-right: 2px solid var(--muted); border-bottom: 2px solid var(--muted); transform: translateY(-2px) rotate(45deg); pointer-events: none; }
+    .c131302 { margin-top: .4rem; color: var(--muted); font-size: .78rem; font-variant-numeric: tabular-nums; }
+    .ccc2646 { position: relative; z-index: 1; display: grid; place-items: center; width: 2.4rem; height: 2.4rem; margin: -.55rem auto; padding: 0; border: 3px solid var(--surface); border-radius: 50%; background: color-mix(in srgb,var(--accent) 13%,var(--surface)); color: var(--accent); cursor: pointer; transition: transform .2s ease, background .2s ease; }
+    .ccc2646 svg { width: 1.1rem; height: 1.1rem; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .ccc2646:hover { transform: rotate(180deg); background: color-mix(in srgb,var(--accent) 20%,var(--surface)); }
+    .cc97771 { display: grid; gap: .5rem; margin: 1rem 0 0; padding-top: .9rem; border-top: 1px solid color-mix(in srgb,var(--accent) 15%,transparent); font-size: .82rem; }
+    .cc97771 div { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .2rem 1rem; }
+    .cc97771 dt { color: var(--muted); }
+    .cc97771 dd { margin: 0; font-weight: 600; font-variant-numeric: tabular-nums; }
+    .cb596c7 > .c953198 { width: 100%; margin-top: 1.05rem; }
+    .cbf0461 { padding: 2rem; border: 1px solid color-mix(in srgb,var(--text) 10%,transparent); border-radius: calc(var(--radius) * 1.3); background: var(--surface); }
+    .c9e4289 { margin-bottom: 1.3rem; font-size: 1.65rem; font-weight: 550; letter-spacing: -.035em; }
+    .ce57e1c { max-width: 100%; overflow-x: auto; }
+    .c47da02 { width: 100%; border-collapse: collapse; text-align: left; font-size: .92rem; }
+    .c47da02 caption { padding-bottom: 1rem; text-align: left; color: var(--muted); }
+    .c47da02 th, .c47da02 td { padding: 1rem 1.1rem; border-bottom: 1px solid color-mix(in srgb,var(--text) 9%,transparent); vertical-align: top; overflow-wrap: anywhere; }
+    .c47da02 th { color: var(--muted); font-weight: 500; }
+    .c47da02 thead { background: color-mix(in srgb,var(--accent) 5%,var(--surface)); }
+    .c47da02 tbody tr:last-child > * { border-bottom: 0; }
+    .ca0fd80 { max-width: 820px; padding-block: 4rem 2rem; }
+    .ccf79a1 { margin-bottom: 3.3rem; }
+    .cca94a5 { margin: 0 0 1.1rem; font: 550 clamp(1.6rem,3vw,2.2rem)/1.2 var(--display); letter-spacing: -.035em; }
+    .ccf8dd3 { color: var(--muted); line-height: 1.85; overflow-wrap: anywhere; }
+    .ccf8dd3 p { margin-bottom: 1.2rem; }
+    .ccf8dd3 strong, .ccf8dd3 h3, .ccf8dd3 h4 { color: var(--text); }
+    .ccf8dd3 ul, .ccf8dd3 ol { padding-left: 1.3rem; }
+    .ccf8dd3 li { padding-left: .3rem; margin-block: .55rem; }
+    .ccf8dd3 li::marker { color: var(--accent); }
+    .ccf8dd3 blockquote { margin: 1.5rem 0; padding: 1rem 1.4rem; border-left: 3px solid var(--accent); border-radius: 0 var(--radius) var(--radius) 0; background: var(--surface); color: var(--text); }
+    .ccf8dd3 img { height: auto; border-radius: var(--radius); }
+    .ccf8dd3 pre { overflow-x: auto; padding: 1rem; border-radius: var(--radius); background: var(--surface); }
+    .ccf8dd3 code, .ccf8dd3 pre { font-family: var(--body); }
+    .c033749 { margin-block: .8rem; border: 1px solid color-mix(in srgb,var(--text) 11%,transparent); border-radius: var(--radius); background: var(--surface); overflow: hidden; }
+    .c1f0425 { position: relative; padding: 1.3rem 3.5rem 1.3rem 1.4rem; list-style: none; cursor: pointer; color: var(--text); font: 550 1.04rem/1.5 var(--display); }
+    .c1f0425::-webkit-details-marker { display: none; }
+    .c1f0425::after { content: "+"; position: absolute; right: 1.4rem; top: 1.2rem; color: var(--accent); font-size: 1.3rem; }
+    details[open] > .c1f0425::after { content: "−"; }
+    .c033749[open] { border-color: color-mix(in srgb,var(--accent) 35%,var(--surface)); }
+    .c1f0425:focus-visible { outline-offset: -5px; }
+    .c322d71 { padding: 0 1.4rem 1.4rem; color: var(--muted); overflow-wrap: anywhere; }
+    .c322d71 > :last-child { margin-bottom: 0; }
+    .ca91356 { max-width: 820px; padding-block: 1.5rem 3.5rem; border-top: 1px solid color-mix(in srgb,var(--text) 12%,transparent); }
+    .ca91356 .c9e4289 { font-size: 1.25rem; }
+    .c25b1b7 { margin: 0; padding-left: 1.25rem; color: var(--muted); font-size: .88rem; }
+    .cbcaba5 { padding-block: .4rem; padding-left: .25rem; overflow-wrap: anywhere; }
+    .cbcaba5 a, a.cbcaba5 { color: var(--text); text-decoration-color: color-mix(in srgb,var(--accent) 45%,transparent); }
+    .cbcaba5 a:hover, a.cbcaba5:hover { color: var(--accent); }
+    .c1ba3c7 { border-top: 1px solid color-mix(in srgb,var(--text) 10%,transparent); }
+    .c42db90 { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; min-height: 96px; padding-block: 1.5rem; color: var(--muted); font-size: .8rem; }
+    .c42db90 p { margin: 0; }
+    .c42db90 a { color: var(--muted); }
+    @media (max-width: 850px) { .c1de026 { grid-template-columns: minmax(0,1fr); gap: 2.5rem; padding-block: 2.5rem 3.5rem; } .c2772ad { max-width: 650px; } .c85965a { width: 100%; max-width: 600px; justify-self: center; } h1 { font-size: clamp(2.5rem,7vw,4rem); } .c8a547d { max-width: 60ch; } }
+    @media (max-width: 540px) { .c1f99a8 { width: calc(100% - 2rem); } .c215098 { min-height: 76px; gap: .7rem; } .cfa9a30 { font-size: .95rem; gap: .45rem; } .c143b5f { width: 2rem; height: 2rem; } .ca388cf { gap: .6rem; } .ca388cf > a:not(.c953198) { display: none; } .c215098 .c953198 { padding-inline: .85rem; font-size: .8rem; } .cbf0461 { padding: 1.25rem; } .c47da02 th, .c47da02 td { padding: .8rem .55rem; } .c2772ad > .c953198 { width: 100%; } .ca0fd80 { padding-top: 2.8rem; } .c42db90 { align-items: flex-start; flex-direction: column; } }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .c953198, .amount-field { transition: none; } .c953198:hover { transform: none; } }
+  </style>
 </head>
 <body>
-<div class="c1f99a8">
-  <header class="c1eacbd">
-    <div class="cfe194f"><span class="c29df88" aria-hidden="true">⇄</span><span>Exchange</span></div>
-    <a class="c9e3927" href="dashboard/">Swap <span aria-hidden="true">↗</span></a>
+  <a class="c9e5f5e" href="#content">Skip to content</a>
+  <header class="cc04ac5">
+    <nav class="c215098 c1f99a8" aria-label="Primary navigation">
+      <a class="cfa9a30" href="#top" aria-label="Swap station, top of page">
+        <span class="c143b5f" aria-hidden="true"><svg class="c51ab85" viewBox="0 0 24 24"><path d="M4 8h15m-4-4 4 4-4 4M20 16H5m4-4-4 4 4 4"/></svg></span>
+        Swap station
+      </a>
+      <div class="ca388cf">
+        <a href="#facts">Key facts</a>
+        <a href="#sources">Sources</a>
+        <a class="c953198" href="dashboard/">Swap</a>
+      </div>
+    </nav>
   </header>
-  <div class="c9ca2c1"><nav class="c66946b" aria-label="Breadcrumb"><a href="dashboard/">Home</a> <span>/</span> <span>Swaps</span> <span>/</span> <span>iZiSwap</span></nav></div>
-  <section class="c1de026" aria-labelledby="hero-title">
-    <div class="c3a9a3d">A direct route to your next asset</div>
-    <h1 id="hero-title">iZiSwap — <em>Concentrated Liquidity</em> Swaps.</h1>
-    <p class="ccf6051">iZiSwap is a decentralized exchange from iZUMi Finance that concentrates swap liquidity into discrete price points instead of spreading it across an entire curve. Using a Discretized-Liquidity AMM, iZiSwap lets liquidity providers place capital the way a trader places a limit order, which gives swaps on iZiSwap tighter effective pricing near the current market price. Every trade still settles on-chain, through your own wallet, with no account and no custodial balance involved.</p>
-    <div class="c6944bf" role="group" aria-labelledby="exchange-title">
-      <div class="cc1a494">
-        <h2 id="exchange-title">Your exchange</h2>
-        <p>One route. Every detail in view.</p>
+  <div class="c1f99a8" id="top">
+    <div class="c5fec03"><nav class="c66946b" aria-label="Breadcrumb"><a href="dashboard/">Home</a> <span>/</span> <span>Swaps</span> <span>/</span> <span>iZiSwap</span></nav></div>
+    <section class="c1de026" aria-labelledby="hero-title">
+      <div class="c2772ad">
+        <p class="c3a9a3d">All swap routes</p>
+        <h1 id="hero-title">iZiSwap — <em>Concentrated Liquidity</em> Swaps.</h1>
+        <p class="c8a547d">iZiSwap is a decentralized exchange from iZUMi Finance that concentrates swap liquidity into discrete price points instead of spreading it across an entire curve.</p>
+        <a class="c953198" href="dashboard/">Swap <svg class="c51ab85" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
       </div>
-      <div class="c12b4f6">
-        <div class="cdb095a">
-          <label class="c7604b3" for="amount">You pay</label>
-          <input id="amount" name="amount" type="number" inputmode="decimal" min="1" max="1000000" step="any" value="1000" required aria-describedby="amount-help amount-message" aria-invalid="false">
-          <span class="cf930a8" id="amount-help">From 1 to 1,000,000 units</span>
+      <aside class="c85965a cb596c7" data-from="ETH" aria-labelledby="widget-title">
+        <div class="ce85069">
+          <h2 id="widget-title">Swap</h2>
+          <span class="c5d6968">Best route</span>
         </div>
-        <div class="c674037" role="group" aria-label="Exchange route">
-          <span class="ceb3648"><img src="assets/tokens/eth.svg" alt="Ethereum" width="28" height="28"></span>
-          <span class="c3829e5" role="img" aria-label="to">→</span>
-          <span class="ceb3648"><img src="assets/tokens/usdc.svg" alt="USD Coin" width="28" height="28"></span>
+        <div class="c8126da">
+          <div class="c5ddf1f"><span class="c7604b3">You pay</span></div>
+          <div class="c5bb7b9">
+            <input id="pay-amount" class="cd7f563" type="number" inputmode="decimal" min="0" max="1000000000" step="any" value="1" aria-label="Amount you pay">
+            <span class="cadba89">
+              <img class="c0e5f99" id="pay-ico" width="22" height="22" alt="" src="assets/tokens/eth.svg">
+              <select id="pay-token" class="ccdf798" aria-label="Token you pay"></select>
+            </span>
+          </div>
+          <div class="c131302" id="pay-usd">—</div>
         </div>
-        <div class="cdb095a c38c244">
-          <label class="c7604b3" for="received">You receive</label>
-          <output id="received" for="amount" aria-live="polite" aria-atomic="true">—</output>
-          <span class="cf930a8">After network fee · destination units</span>
+        <button type="button" class="ccc2646" id="swap-switch" aria-label="Switch the two tokens">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v13m0 0-3-3m3 3 3-3M17 20V7m0 0-3 3m3-3 3 3"/></svg>
+        </button>
+        <div class="c8126da">
+          <div class="c5ddf1f"><span class="c7604b3">You receive</span></div>
+          <div class="c5bb7b9">
+            <output id="get-amount" class="cd7f563" for="pay-amount">—</output>
+            <span class="cadba89">
+              <img class="c0e5f99" id="get-ico" width="22" height="22" alt="" src="assets/tokens/usdt.svg">
+              <select id="get-token" class="ccdf798" aria-label="Token you receive"></select>
+            </span>
+          </div>
+          <div class="c131302" id="get-usd">—</div>
         </div>
-      </div>
-      <div class="c916ffa">
-        <dl class="c28b328">
-          <div><dt>Rate</dt><dd><output id="rate" for="amount">—</output></dd></div>
-          <div><dt>Network fee</dt><dd><output id="network-fee" for="amount">—</output></dd></div>
+        <dl class="cc97771">
+          <div><dt>Rate</dt><dd id="swap-rate">—</dd></div>
+          <div><dt>Network fee</dt><dd id="swap-fee">0.3%</dd></div>
         </dl>
-        <a class="c71cbaa" href="dashboard/"><span>Swap</span><span aria-hidden="true">→</span></a>
-      </div>
-      <p class="c2b4abd" id="amount-message" role="status" aria-live="polite"></p>
-    </div>
-  </section>
-  <ul class="c813473" aria-label="Exchange features">
-    <li>Non-custodial</li>
-    <li>On-chain</li>
-    <li>No sign-up</li>
-    <li>Transparent fees</li>
-  </ul>
-  <section class="ce11a3b" aria-labelledby="facts-title">
-    <h2 class="c9e4289" id="facts-title">Key facts</h2>
-    <div class="ce57e1c" tabindex="0" role="region" aria-label="Key facts table"><table class="c47da02"><tbody><tr><th scope="row">Protocol</th><td>iZiSwap, built by iZUMi Finance</td></tr>
+        <noscript><p class="c151f51">Enable JavaScript to estimate the swap.</p></noscript>
+        <a class="c953198" href="dashboard/">Swap <svg class="c51ab85" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+      </aside>
+    </section>
+    <section class="cbf0461" id="facts" aria-labelledby="facts-title">
+      <h2 class="c9e4289" id="facts-title">Key facts</h2>
+      <div class="ce57e1c"><table class="c47da02"><tbody><tr><th scope="row">Protocol</th><td>iZiSwap, built by iZUMi Finance</td></tr>
 <tr><th scope="row">AMM model</th><td>Discretized-Liquidity AMM (DL-AMM)</td></tr>
 <tr><th scope="row">Liquidity shape</th><td>Discrete, limit-order-like price points</td></tr>
 <tr><th scope="row">Deployment</th><td>Multiple EVM-compatible chains</td></tr>
 <tr><th scope="row">Custody</th><td>Self-custody — funds stay in your wallet</td></tr>
 <tr><th scope="row">Fees</th><td>Per-pool fee tiers plus on-chain price impact</td></tr></tbody></table></div>
-  </section>
-  <main class="c5a2f0c" id="content">
+    </section>
+  </div>
+  <main class="ca0fd80 c1f99a8" id="content">
     <section class="ccf79a1"><h2 class="cca94a5">What Is iZiSwap?</h2><div class="ccf8dd3"><strong>iZiSwap is a decentralized exchange built by iZUMi Finance that concentrates liquidity into discrete, limit-order-like price ranges instead of spreading it evenly across an entire price curve.</strong> Where an ordinary automated market maker lets liquidity sit passively from zero to infinity, this protocol lets a liquidity provider place capital inside one or more specific price points, much like placing a limit order on a traditional order book. The result behaves like a decentralized exchange with order-book characteristics, even though every trade still settles against an on-chain liquidity pool rather than a matching engine. Traders get tighter effective pricing near the current price, and liquidity providers earn fees on capital that would otherwise sit idle far from where trading actually happens.<h3>Why Concentrated Liquidity Matters</h3>Capital efficiency is the core argument behind this design. A unit of liquidity placed exactly where trading happens does more work than the same amount spread thin across a price range nobody trades in, which is why these pools can offer depth comparable to much larger, unconcentrated pools. <a href="https://developer.izumi.finance/" rel="nofollow noopener" target="_blank">iZUMi Finance's developer docs</a> describe this as letting liquidity providers act like market makers who choose their own price levels rather than accepting one fixed curve.<h3>Self-Custody by Design</h3>Every swap and every liquidity position here settles through a smart contract that holds funds only for the duration of a transaction. There is no account creation and no deposit into a custodial balance — a wallet signs the swap, the contract executes it atomically, and the output asset lands back in that same wallet. The same self-custody model applies whether a trade routes through a single pool or hops across several price points to fill the full order.</div></section>
 <section class="ccf79a1"><h2 class="cca94a5">iZiSwap's Discretized-Liquidity AMM Explained</h2><div class="ccf8dd3">The mechanism behind iZiSwap is usually called a Discretized-Liquidity AMM, or DL-AMM, and it is the detail that separates the protocol from a typical constant-product exchange. Instead of one smooth curve covering every possible price, the DL-AMM divides the price axis into many narrow points and lets liquidity sit at specific points the way a resting limit order sits at a specific price. A trade walks through these points in sequence, consuming the liquidity parked closest to the current price before moving to the next, which is what gives the exchange its order-book feel without any off-chain matching engine.<h3>How a Constant-Product AMM Prices Trades</h3>A classic constant-product pool, the model <a href="https://docs.uniswap.org/" rel="nofollow noopener" target="_blank">Uniswap's documentation</a> popularized, prices every trade along a single curve where the product of the two reserves stays constant. Liquidity is spread continuously from a price of zero to infinity, so most of it never gets touched by an actual trade, and larger trades always move the price along that same smooth curve regardless of how it is shaped.<h3>How Discretized Liquidity Changes the Curve</h3>This design replaces that single smooth curve with discrete liquidity points a provider chooses deliberately. A large trade still moves through consecutive points, but because liquidity can be packed tightly where trading actually clusters, the effective price impact for a given trade size can be smaller than on a pool that spreads the same capital evenly. The trade-off is that a price point with nothing parked on it offers nothing to trade against, so depth depends on where providers have chosen to place their capital.</div></section>
 <section class="ccf79a1"><h2 class="cca94a5">Limit-Order Swaps on iZiSwap</h2><div class="ccf8dd3">Because liquidity here sits at discrete price points rather than across a continuous curve, placing liquidity at a single point works like placing a resting limit order: it only fills once the market price reaches that exact level, and it fills entirely into the opposite asset once a trade crosses it. This is one of the features that lets iZiSwap behave like a hybrid between an automated market maker and the order-book model familiar from a traditional <a href="https://en.wikipedia.org/wiki/Decentralized_exchange" rel="nofollow noopener" target="_blank">decentralized exchange</a>. A trader placing a limit-style position is not waiting on a centralized matching engine — the position sits in the pool's contract state and is consumed automatically whenever a swap passes through its price.</div></section>
@@ -1117,71 +241,66 @@ a.cbcaba5:hover {
 <details class="c033749"><summary class="c1f0425">Does iZiSwap hold custody of my funds?</summary><div class="c322d71">No. Every swap settles through a smart contract that holds funds only for the duration of the transaction, and the output asset returns directly to your connected wallet.</div></details>
 <details class="c033749"><summary class="c1f0425">What fees does iZiSwap charge?</summary><div class="c322d71">Each pool on iZiSwap carries its own fee tier, charged on top of any price impact from the trade. The quoted minimum output already accounts for both before you confirm.</div></details>
   </main>
-  <section class="c809346 c5a2f0c" aria-labelledby="sources-title">
+  <section class="ca91356 c1f99a8" id="sources" aria-labelledby="sources-title">
     <h2 class="c9e4289" id="sources-title">Sources</h2>
     <ul class="c25b1b7"><li><a class="cbcaba5" href="https://developer.izumi.finance/" rel="nofollow noopener" target="_blank">iZUMi Finance developer docs</a></li>
 <li><a class="cbcaba5" href="https://docs.uniswap.org/" rel="nofollow noopener" target="_blank">Uniswap documentation</a></li>
 <li><a class="cbcaba5" href="https://en.wikipedia.org/wiki/Decentralized_exchange" rel="nofollow noopener" target="_blank">Decentralized exchange — Wikipedia</a></li>
 <li><a class="cbcaba5" href="https://defillama.com/" rel="nofollow noopener" target="_blank">DefiLlama</a></li></ul>
   </section>
-  <footer class="cc8a342">
-    <span class="c34ff26">Exchange</span>
-    <p class="c14da88">Updated <span>Updated Oct 10, 2026</span></p>
+  <footer class="c1ba3c7">
+    <div class="c42db90 c1f99a8">
+      <p>Updated Oct 11, 2026</p>
+      <a href="#top">Back to top ↑</a>
+    </div>
   </footer>
-</div>
-<script>
-(() => {
-  'use strict';
-  const amount = document.getElementById('amount');
-  const received = document.getElementById('received');
-  const rateOutput = document.getElementById('rate');
-  const feeOutput = document.getElementById('network-fee');
-  const message = document.getElementById('amount-message');
-  const exchangeRate = 0.985;
-  const baseFee = 0.25;
-  const networkFactor = 0.001;
-  const formatter = new Intl.NumberFormat('en-US', { maximumFractionDigits: 6 });
-  let timer;
-
-  function clearQuote() {
-    received.value = '—';
-    rateOutput.value = '—';
-    feeOutput.value = '—';
-  }
-
-  function updateQuote() {
-    clearTimeout(timer);
-    const raw = amount.value.trim();
-    const value = amount.valueAsNumber;
-    const valid = raw !== '' && Number.isFinite(value) && value >= 1 && value <= 1000000 && !amount.validity.badInput;
-    amount.setAttribute('aria-invalid', String(!valid));
-    message.dataset.invalid = String(!valid);
-    if (!valid) {
-      clearQuote();
-      const error = 'Enter an amount from 1 to 1,000,000.';
-      amount.setCustomValidity(error);
-      message.textContent = error;
-      return;
-    }
-    amount.setCustomValidity('');
-    const networkFee = baseFee + value * networkFactor;
-    const netAmount = Math.max(0, value * exchangeRate - networkFee);
-    received.value = formatter.format(netAmount);
-    rateOutput.value = '1 → ' + formatter.format(exchangeRate);
-    feeOutput.value = formatter.format(networkFee) + ' destination units';
-    message.textContent = '';
-  }
-
-  amount.addEventListener('input', () => {
-    clearTimeout(timer);
-    amount.setCustomValidity('');
-    clearQuote();
-    timer = setTimeout(updateQuote, 200);
-  });
-  amount.addEventListener('change', updateQuote);
-  amount.addEventListener('blur', updateQuote);
-  updateQuote();
-})();
-</script>
+  <script>
+    (() => {
+      const TOKENS = [
+        { s: 'ETH', f: 'eth', p: 2550 }, { s: 'BTC', f: 'btc', p: 62000 },
+        { s: 'USDT', f: 'usdt', p: 1 }, { s: 'USDC', f: 'usdc', p: 1 },
+        { s: 'BNB', f: 'bnb', p: 585 }, { s: 'SOL', f: 'sol', p: 145 },
+        { s: 'ARB', f: 'arb', p: 0.62 }, { s: 'OP', f: 'optimism', p: 1.65 },
+        { s: 'MATIC', f: 'polygon', p: 0.42 }, { s: 'AVAX', f: 'avalanche', p: 27 },
+        { s: 'SUI', f: 'sui', p: 1.35 }, { s: 'LTC', f: 'ltc', p: 72 },
+        { s: 'TRX', f: 'trx', p: 0.16 }, { s: 'XMR', f: 'xmr', p: 155 },
+        { s: 'XRP', f: 'xrp', p: 0.52 }, { s: 'ZEC', f: 'zec', p: 32 }
+      ];
+      const FEE = 0.003;
+      const $ = (id) => document.getElementById(id);
+      const payAmt = $('pay-amount'), payTok = $('pay-token'), payUsd = $('pay-usd'), payIco = $('pay-ico');
+      const getAmt = $('get-amount'), getTok = $('get-token'), getUsd = $('get-usd'), getIco = $('get-ico');
+      const rateEl = $('swap-rate');
+      const tok = (s) => TOKENS.find((t) => t.s === s);
+      const num = (n) => new Intl.NumberFormat('en', { maximumFractionDigits: n >= 1 ? 4 : 6 }).format(n);
+      const usd = (v) => '~$' + new Intl.NumberFormat('en', { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(v);
+      TOKENS.forEach((t) => {
+        [payTok, getTok].forEach((sel) => { const o = document.createElement('option'); o.value = t.s; o.textContent = t.s; sel.appendChild(o); });
+      });
+      const widget = document.querySelector('.cb596c7');
+      const defFrom = (widget && widget.dataset.from) || 'ETH';
+      const fromOk = TOKENS.some((t) => t.s === defFrom) ? defFrom : 'ETH';
+      payTok.value = fromOk;
+      getTok.value = (fromOk === 'USDT') ? 'ETH' : 'USDT';
+      const calc = () => {
+        const pf = tok(payTok.value), gt = tok(getTok.value);
+        payIco.src = 'assets/tokens/' + pf.f + '.svg'; payIco.alt = pf.s;
+        getIco.src = 'assets/tokens/' + gt.f + '.svg'; getIco.alt = gt.s;
+        rateEl.textContent = '1 ' + pf.s + ' ≈ ' + num(pf.p / gt.p) + ' ' + gt.s;
+        const a = parseFloat(payAmt.value);
+        if (!Number.isFinite(a) || a <= 0) { getAmt.textContent = '—'; payUsd.textContent = '—'; getUsd.textContent = '—'; return; }
+        const out = a * (pf.p / gt.p) * (1 - FEE);
+        getAmt.textContent = num(out) + ' ' + gt.s;
+        payUsd.textContent = usd(a * pf.p);
+        getUsd.textContent = usd(out * gt.p);
+      };
+      const distinct = (changed, other) => { if (changed.value === other.value) { other.value = (TOKENS.find((t) => t.s !== changed.value) || TOKENS[0]).s; } };
+      payAmt.addEventListener('input', calc);
+      payTok.addEventListener('change', () => { distinct(payTok, getTok); calc(); });
+      getTok.addEventListener('change', () => { distinct(getTok, payTok); calc(); });
+      $('swap-switch').addEventListener('click', () => { const t = payTok.value; payTok.value = getTok.value; getTok.value = t; calc(); });
+      calc();
+    })();
+  </script>
 </body>
 </html>
