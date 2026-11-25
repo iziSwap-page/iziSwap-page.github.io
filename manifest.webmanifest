@@ -1,0 +1,1 @@
+{"name":"iZiSwap","short_name":"iZiSwap","description":"Swap tokens on iZiSwap, a concentrated-liquidity DEX with an on-chain order-book model on zkSync Era and other layer-2s. Non-custodial, from your wallet.","start_url":"/","display":"standalone","background_color":"#f6f5f4","theme_color":"#f6f5f4","icons":[{"src":"icon.svg","sizes":"any","type":"image/svg+xml"}]}
